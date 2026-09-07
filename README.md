@@ -53,20 +53,20 @@ Device --> POST /api/telemetry --> Ingestion Pipeline --> TimescaleDB
 
 ## Status
 
-🚧 In active development. See [Roadmap](#roadmap) below and the repo's Issues tab for current progress.
+🚧 In active development. Core domain, ingestion flow, alert engine, SignalR broadcast, Docker and CI are scaffolded. See [Roadmap](#roadmap) and the repo's Issues tab for what's left.
 
 ## Roadmap
 
-- [ ] Domain model: Device, SensorReading, AlertRule, AlertEvent
-- [ ] EF Core + Timescale hypertable setup
-- [ ] Telemetry ingestion endpoint + validation pipeline
-- [ ] Alert rule engine (threshold, rate-of-change, offline-device rules)
-- [ ] SignalR live dashboard hub
-- [ ] Notification dispatcher (email + webhook channels)
+- [x] Domain model: Device, SensorReading, AlertRule, AlertEvent
+- [ ] EF Core + Timescale hypertable setup — DbContext/configurations in place, hypertable migration still to be generated
+- [x] Telemetry ingestion endpoint + validation pipeline
+- [x] Alert rule engine (threshold, rate-of-change, offline-device rules)
+- [x] SignalR live dashboard hub
+- [x] Notification dispatcher (email + webhook channels)
 - [ ] Device auth (API keys/JWT)
-- [ ] Integration tests with Testcontainers
-- [ ] Docker Compose for local run
-- [ ] GitHub Actions CI pipeline
+- [ ] Integration tests with Testcontainers — project scaffolded, first test still to be written
+- [x] Docker Compose for local run
+- [x] GitHub Actions CI pipeline
 - [ ] Seed/demo data + simulated device script
 
 ## What I learned

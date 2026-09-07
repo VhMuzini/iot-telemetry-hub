@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: timescale/timescaledb:latest-pg16
+    environment:
+      POSTGRES_DB: iot_telemetry_hub
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - iot-telemetry-hub-data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    depends_on:
+      - postgres
+    environment:
+      ConnectionStrings__Postgres: "Host=postgres;Port=5432;Database=iot_telemetry_hub;Username=postgres;Password=postgres"
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "8080:8080"
+
+volumes:
+  iot-telemetry-hub-data:
